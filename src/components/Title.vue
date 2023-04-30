@@ -6,7 +6,7 @@
 import { defineComponent } from 'vue';
   
 export default defineComponent({
-    name: "ContactComponent",
+    name: "TitleComponent",
     props: {
         text: {
             type: String,
