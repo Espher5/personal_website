@@ -38,7 +38,7 @@ export default defineComponent({
                     score: "110/110 cum Laude",
                 },
                 {
-                    index: 1,
+                    index: 2,
                     date: "2016/09 - 2020/09",
                     degree: 'Bachelor\'s Degree in Computer Science',
                     school: "Università degli Studi di Salerno",
@@ -55,6 +55,22 @@ export default defineComponent({
   
 <style scoped lang="scss">
 .education-section {
-    padding-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.education-section h4 {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.education-section .row {
+    margin-bottom: 5px;
+}
+
+.education-section p {
+    margin-bottom: 5px;
 }
 </style>

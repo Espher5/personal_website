@@ -1,5 +1,7 @@
 <template>
-    <img src="@/assets/logo.png" />
+    <div class="image-container">
+        <img src="@/assets/logo.png" />
+    </div>
 </template>
 
 <script lang="ts">
@@ -12,5 +14,7 @@ export default defineComponent({
 </script>
 
 <style scope lang="scss">
-
+.image-container {
+    text-align: center;
+}
 </style>

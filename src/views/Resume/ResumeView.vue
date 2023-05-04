@@ -2,10 +2,10 @@
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-4 side-section">
+                <div class="col-sm-4 col-xl-3 side-section">
                     <SideSectionView />
                 </div>
-                <div class="col-sm-8 main-section">
+                <div class="col-sm-8 col-xl-9 main-section">
                     <MainSectionView />
                 </div>
             </div>       

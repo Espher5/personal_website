@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid">
+    <div class="side-section-container container-fluid">
         <div class="row">
             <div class="image">
                 <Image />
@@ -33,5 +33,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-
+.side-section-container {
+    background-color: bisque;
+    height: 100%;
+}
 </style>

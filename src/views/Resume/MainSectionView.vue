@@ -6,6 +6,9 @@
         <div class="education">
             <Education />
         </div>
+        <div class="education">
+            <Projects />
+        </div>
     </div>
 </template>
 
@@ -13,11 +16,12 @@
 import { defineComponent } from 'vue';
 import Experience from '@/components/Resume/Experience.vue';
 import Education from '@/components/Resume/Education.vue';
+import Projects from '@/components/Resume/Projects.vue';
 
 
 export default defineComponent({
     name: "MainSectionView",
-    components: { Experience, Education,  }
+    components: { Experience, Education, Projects }
 });
 
 </script>
