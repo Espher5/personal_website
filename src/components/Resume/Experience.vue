@@ -1,12 +1,12 @@
 <template>
     <div>
         <h3>Experience</h3>
-        <div class="container-fluid experience-section" v-for="(item, index) in experiences" :key="index">
-            <div class="row">
-                <div class="col-8">
+        <div class="container-fluid experience-section " v-for="(item, index) in experiences" :key="index">
+            <div class="row d-flex justify-content-between">
+                <div class="col-3">
                     <p><b>{{ item.title }}</b></p>
                 </div>
-                <div class="col-4">
+                <div class="col-2">
                     <p>{{ item.date }}</p>
                 </div>
             </div>

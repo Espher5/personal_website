@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3>Education</h3>
-        <div class="container-fluid education-section" v-for="item in graduations" :key="item.index">
+        <div class="container-fluid education-section" v-for="(item,index) in graduations" :key="index">
             <div class="row">
                 <div class="col-8">
                     <p><b>{{ item.degree }}</b></p>
@@ -29,7 +29,6 @@ export default defineComponent({
         return {
             graduations: [
                 {
-                    index: 0,
                     date: "2020/09 - 2023/02",
                     degree: 'Master\'s Degree in Computer Science',
                     school: "Università degli Studi di Salerno",
@@ -38,7 +37,6 @@ export default defineComponent({
                     score: "110/110 cum Laude",
                 },
                 {
-                    index: 2,
                     date: "2016/09 - 2020/09",
                     degree: 'Bachelor\'s Degree in Computer Science',
                     school: "Università degli Studi di Salerno",

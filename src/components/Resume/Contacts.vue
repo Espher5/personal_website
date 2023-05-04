@@ -1,19 +1,19 @@
 <template>
     <Title :text="contactsLabel" />
     <div v-if="phoneNumber" class="contact-line">
-        <img src="@/assets/phone.svg" />
+        <img src="@/assets/icons/phone.svg" />
         <Paragraph class="contact" :text="phoneNumber" />
     </div>
     <div v-if="email" class="contact-line">
-        <img src="@/assets/email.svg" />
+        <img src="@/assets/icons/email.svg" />
         <Paragraph class="contact" :text="email" />
     </div>
     <div v-if="linkedIn" class="contact-line">
-        <img src="@/assets/linkedin.svg" />
+        <img src="@/assets/icons/linkedin.svg" />
         <Paragraph class="contact" :text="linkedIn" />
     </div>
     <div v-if="gitHub" class="contact-line">
-        <img src="@/assets/linkedin.svg" />
+        <img src="@/assets/icons/linkedin.svg" />
         <Paragraph class="contact" :text="gitHub" />
     </div>
 </template>

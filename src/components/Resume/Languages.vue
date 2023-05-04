@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="languages-container">
         <h3>Languages</h3>
-        <div class="container-fluid education-section" v-for="item in languages" :key="item.index">
+        <div class="container-fluid language-section" v-for="item in languages" :key="item.index">
             <div class="row">
                 <p>{{ item.language }} - {{ item.level }}.</p>
             </div>
@@ -36,7 +36,7 @@ export default defineComponent({
   
   
 <style scoped lang="scss">
-.education-section {
-    padding-bottom: 10px;
+.languages-container {
+    padding-top: 10px;;
 }
 </style>
