@@ -4,45 +4,51 @@
   
 <script>
 import * as THREE from 'three';
-import { Clock } from 'three';
+import { TweenMax } from 'gsap';
 
 export default {
-    name: 'SpinningCube',
+    name: 'StarsTunnel',
     mounted() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 0;
 
-    let tunnelDepth = 0;
-    let particleBatchDepth = -40;
-    let offset= new THREE.Vector3(0, 0, particleBatchDepth);
+    const particleBatchDepth = -40;
+    let tunnelDepth = -40;   
     let nextParticlesIndex = 0;
 
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     this.$refs.container.appendChild(renderer.domElement);
     
-    let particles = []
-    particles[0] = createParticles(offset);
+    let particles = [];
+    particles[0] = createParticles(new THREE.Vector3(0, 0, particleBatchDepth));
     scene.add(particles[0]);
 
     const animate = () => {
         requestAnimationFrame(animate);
         camera.position.z -= 0.1;
-        
+ 
         if (camera.position.z <= tunnelDepth - (particleBatchDepth * 3/4) ) {
+            console.log('yo');
             //Update total depth
             tunnelDepth += particleBatchDepth;
 
             //Generate offset for new particles
-            offset = new THREE.Vector3(0, 0, tunnelDepth);
+            let offset = new THREE.Vector3(0, 0, tunnelDepth);
             particles[nextParticlesIndex] = createParticles(offset);
+
+            // Get the material of the new particles and apply fade in animation
+            let material = particles[nextParticlesIndex].material;
+            material.transparent = true;
+            material.opacity = 0;
             scene.add(particles[nextParticlesIndex]);
+            TweenMax.to(material, 1, { opacity: 1 });
 
             // Update index and remove old particles
             nextParticlesIndex = (nextParticlesIndex + 1 ) % 2
-            scene.remove(particles[nextParticlesIndex])
-        }
+            scene.remove(particles[nextParticlesIndex]);
+        } 
 
         renderer.render(scene, camera);
     };
@@ -62,9 +68,9 @@ export default {
         const positions = new Float32Array(10000 * 3);
         for (let i = 0; i < 10000; i++) {
             const pos = new THREE.Vector3(
-            Math.random() * 80 - 40,
-            Math.random() * 80 - 40,
-            Math.random() * 400 + offset.z
+                Math.random() * 80 - 40,
+                Math.random() * 80 - 40,
+                Math.random() * 400 + offset.z
             );
             positions[i * 3] = pos.x;
             positions[i * 3 + 1] = pos.y;
