@@ -1,12 +1,12 @@
 <template>
     <div>
         <h3>Education</h3>
-        <div class="container-fluid education-section" v-for="(item,index) in graduations" :key="index">
+        <div class="container-fluid content-section" v-for="(item,index) in graduations" :key="index">
             <div class="row">
-                <div class="col-8">
+                <div class="col">
                     <p><b>{{ item.degree }}</b></p>
                 </div>
-                <div class="col-4">
+                <div class="col date">
                     <p>{{ item.date }}</p>
                 </div>
             </div>
@@ -52,23 +52,7 @@ export default defineComponent({
   
   
 <style scoped lang="scss">
-.education-section {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.education-section h4 {
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.education-section .row {
-    margin-bottom: 5px;
-}
-
-.education-section p {
-    margin-bottom: 5px;
+.date {
+    text-align: right;
 }
 </style>

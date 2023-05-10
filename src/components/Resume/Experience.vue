@@ -1,12 +1,12 @@
 <template>
     <div>
         <h3>Experience</h3>
-        <div class="container-fluid experience-section " v-for="(item, index) in experiences" :key="index">
+        <div class="container-fluid content-section " v-for="(item, index) in experiences" :key="index">
             <div class="row d-flex justify-content-between">
-                <div class="col-3">
+                <div class="col">
                     <p><b>{{ item.title }}</b></p>
                 </div>
-                <div class="col-2">
+                <div class="col date">
                     <p>{{ item.date }}</p>
                 </div>
             </div>
@@ -60,23 +60,7 @@ export default defineComponent({
   
   
 <style scoped lang="scss">
-.experience-section {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.experience-section h4 {
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.experience-section .row {
-    margin-bottom: 5px;
-}
-
-.experience-section p {
-    margin-bottom: 5px;
+.date {
+    text-align: right;
 }
 </style>

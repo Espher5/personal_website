@@ -1,8 +1,7 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HomePage msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+    <div class="home">
+        <HomePage />
+    </div>
 </template>
 
 <script lang="ts">
