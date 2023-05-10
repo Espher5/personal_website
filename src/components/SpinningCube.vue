@@ -1,5 +1,10 @@
 <template>
-    <div ref="container"></div>
+    <div>
+        <div ref="container"></div>
+        <div class="overlay">
+            <h1>Welcome!</h1>
+        </div>
+    </div>
   </template>
   
 <script>
@@ -11,43 +16,47 @@ export default {
     mounted() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 0;
-
-    const particleBatchDepth = -40;
-    let tunnelDepth = -40;   
-    let nextParticlesIndex = 0;
-
     const renderer = new THREE.WebGLRenderer();
+
+    camera.position.z = 0;
     renderer.setSize(window.innerWidth, window.innerHeight);
     this.$refs.container.appendChild(renderer.domElement);
     
+    const particleBatchDepth = -40;
+    const particle_batches = 2;
     let particles = [];
-    particles[0] = createParticles(new THREE.Vector3(0, 0, particleBatchDepth));
-    scene.add(particles[0]);
-
+    for(let i = 0; i < particle_batches; i++) {
+        particles[i] = createParticles(new THREE.Vector3(0, 0, particleBatchDepth * (i + 1)));
+        scene.add(particles[i]);
+    }
+    let tunnelDepth = particle_batches* particleBatchDepth; 
+    let firstparticlesIndex = 0;
+    
     const animate = () => {
         requestAnimationFrame(animate);
         camera.position.z -= 0.1;
- 
-        if (camera.position.z <= tunnelDepth - (particleBatchDepth * 3/4) ) {
+ 1
+        if (camera.position.z <= tunnelDepth  - (particleBatchDepth * 3/4)) {
             console.log('yo');
+            // Remove the first particle batch
+            scene.remove(particles[firstparticlesIndex]);
+            
             //Update total depth
             tunnelDepth += particleBatchDepth;
 
             //Generate offset for new particles
-            let offset = new THREE.Vector3(0, 0, tunnelDepth);
-            particles[nextParticlesIndex] = createParticles(offset);
+            let offset = new THREE.Vector3(0, 0, tunnelDepth + particleBatchDepth);
+            particles[firstparticlesIndex] = createParticles(offset);
 
             // Get the material of the new particles and apply fade in animation
-            let material = particles[nextParticlesIndex].material;
+            let material = particles[firstparticlesIndex].material;
             material.transparent = true;
             material.opacity = 0;
-            scene.add(particles[nextParticlesIndex]);
+            scene.add(particles[firstparticlesIndex]);
             TweenMax.to(material, 1, { opacity: 1 });
 
-            // Update index and remove old particles
-            nextParticlesIndex = (nextParticlesIndex + 1 ) % 2
-            scene.remove(particles[nextParticlesIndex]);
+            // Update index for next particles to remove
+            firstparticlesIndex += (firstparticlesIndex + 1 % particle_batches) 
         } 
 
         renderer.render(scene, camera);
@@ -97,6 +106,24 @@ export default {
 div {
     width: 100%;
     height: 100%;
+}
+
+
+.overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.1); /* Adjust the alpha value (0.5) for desired transparency */
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.overlay h1 {
+  margin: 0;
 }
 </style>
   
