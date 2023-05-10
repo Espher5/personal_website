@@ -4,7 +4,8 @@
   
 <script>
 import * as THREE from 'three';
-  
+import { Clock } from 'three';
+
 export default {
     name: 'SpinningCube',
     mounted() {
@@ -29,9 +30,10 @@ export default {
       requestAnimationFrame(animate);
       camera.position.z -= 0.1;
     
-      if (camera.position.z <= tunnelDepth + 30 ) {
+      if (camera.position.z <= tunnelDepth - (particleBatchDepth * 3/4) ) {
         //Update total depth
         tunnelDepth += particleBatchDepth;
+
         //Generate offset for new particles
         offset = new THREE.Vector3(0, 0, tunnelDepth);
         particles[nextParticlesIndex] = createParticles(offset);
