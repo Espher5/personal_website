@@ -1,15 +1,15 @@
 <template>
     <div class="hero-section" :style="{ backgroundImage: 'url(' + heroImage + ')' }">       
-        <spinning-cube />
+        <StarsTunnel />
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import SpinningCube from './SpinningCube.vue';
+import StarsTunnel from './StarsTunnel.vue';
 
 export default defineComponent({
-  components: { SpinningCube },
+  components: { StarsTunnel },
     name: 'HomePage',
     data() {
         return {
