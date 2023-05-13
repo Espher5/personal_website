@@ -13,18 +13,26 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/Resume/ResumeView.vue')
   },
   {
-    path: '/about',
-    name: 'about',
+    path: '/hobbies',
+    name: 'hobbies',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Hobbies/HobbiesView.vue')
+  },
+  {
+    path: '/photography',
+    name: 'photography',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Hobbies/PhotographyView.vue')
   }
-]
+];
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes
-})
+});
 
-export default router
+export default router;

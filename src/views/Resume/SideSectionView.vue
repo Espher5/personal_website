@@ -2,7 +2,7 @@
     <div class="side-section-container container-fluid">
         <div class="row">
             <div class="image">
-                <Image />
+                <ResumeImage />
             </div>
         </div>
         <div class="row">
@@ -20,14 +20,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Image from '@/components/Resume/Image.vue';
+import ResumeImage from '@/components/Resume/ResumeImage.vue';
 import Contacts from '@/components/Resume/Contacts.vue';
 import Languages from '@/components/Resume/Languages.vue';
 
 
 export default defineComponent({
     name: "SideSectionView",
-    components: { Image, Contacts, Languages }
+    components: { ResumeImage, Contacts, Languages }
 });
 
 </script>

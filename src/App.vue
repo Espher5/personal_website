@@ -1,10 +1,10 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/resume">Resume</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+    <nav>
+        <router-link to="/">Home</router-link> |
+        <router-link to="/resume">Resume</router-link> |
+        <router-link to="/hobbies">My Hobbies</router-link>
+    </nav>
+    <router-view/>
 </template>
 
 <style lang="scss">
