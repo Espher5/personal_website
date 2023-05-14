@@ -6,7 +6,7 @@
         <div class="education">
             <Education />
         </div>
-        <div class="education">
+        <div class="projects">
             <Projects />
         </div>
     </div>

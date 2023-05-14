@@ -13,6 +13,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/Resume/ResumeView.vue')
   },
   {
+    path: '/projects',
+    name: 'projects',
+    component: () => import('../views/Resume/ResumeView.vue')
+  },
+  {
     path: '/hobbies',
     name: 'hobbies',
     component: () => import( '../views/Hobbies/HobbiesView.vue')
@@ -24,6 +29,11 @@ const routes: Array<RouteRecordRaw> = [
     // generates a separate chunk (photography.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "photography" */ '../views/Hobbies/PhotographyView.vue')
+  },
+  {
+    path: '/gaming',
+    name: 'gaming',
+    component: () => import('../views/Hobbies/GamingView.vue')
   }
 ];
 

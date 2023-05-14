@@ -26,9 +26,9 @@ export default defineComponent ({
 <style scoped lang="scss">
 .hobby-banner {
     position: relative;
-    max-width: 85%; /* Increase the max-width to make the banner wider */
+    max-width: 85%; 
     margin: 0 auto;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
   
 .background-image {
@@ -49,7 +49,7 @@ export default defineComponent ({
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 80px; /* Increase the height to make the text container taller */
+    height: 80px; 
     background-color: rgba(255, 255, 255, 0.8);
     display: flex;
     align-items: center;

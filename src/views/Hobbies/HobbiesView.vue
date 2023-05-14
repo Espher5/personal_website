@@ -1,7 +1,4 @@
 <template>
-    <div style="border: 5px solid red; width: 100%; margin-bottom: 10px; height: 50px; text-align:center;">
-        Page under construction!
-    </div>
     <div class="container-fluid">
         <Banner v-for="(item, index) in banners" :key="index" :item="item"/>   
     </div> 
@@ -21,6 +18,11 @@ export default defineComponent({
                     title: 'Photography',
                     background: 'photography_banner.jpg',
                     link: '/photography'
+                },
+                {
+                    title: 'Gaming',
+                    background: 'gaming_banner.png',
+                    link: '/gaming'
                 }
             ]
         };
